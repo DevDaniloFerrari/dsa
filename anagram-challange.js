@@ -2,35 +2,54 @@
 
 function anagramCheck(word, anagram) 
 {
-    let isAnagram = false;
+    if(word.lenght !== anagram.length)
+        return false
+
     let wordCounter = {}
     let anagramCounter = {}
 
     //create word oject counter
-    for (char of word) {
+    for (let char of word) {
         wordCounter[char] = wordCounter[char] + 1 || 1
     }
 
     //create anagram oject counter
-    for (char of anagram) {
+    for (let char of anagram) {
         anagramCounter[char] = anagramCounter[char] + 1 || 1
     }
     
     //compare them
-    for (char of anagram) {
+    for (let char of anagram) {
         if(anagramCounter[char] !== wordCounter[char])
-            return false;
+            return false
     }
 
     return true;
 }
 
-console.log(anagramCheck('', ''))
-console.log(anagramCheck('aaz', 'zza'))
-console.log(anagramCheck('anagram', 'nagaram'))
-console.log(anagramCheck('rat', 'car'))
-console.log(anagramCheck('awesome', 'awesom'))
-console.log(anagramCheck('qwerty', 'qeywrt'))
-console.log(anagramCheck('texttwisttime', 'timetwisttext'))
 
+function anagramCheck2(word, anagram){
+    if(word.length !== anagram.length)
+        return false
+    
+    let wordCounter = {}
 
+    for(let char of word)
+        wordCounter[char] = ++wordCounter[char] || 1 
+
+    for(let char of anagram)
+        if(wordCounter[char] > 0)
+            wordCounter[char]--
+        else
+          return false
+    
+    return true;
+}
+
+console.log(anagramCheck2('', ''))
+console.log(anagramCheck2('aaz', 'zza'))
+console.log(anagramCheck2('anagram', 'nagaram'))
+console.log(anagramCheck2('rat', 'car'))
+console.log(anagramCheck2('awesome', 'awesom'))
+console.log(anagramCheck2('qwerty', 'qeywrt'))
+console.log(anagramCheck2('texttwisttime', 'timetwisttext'))
