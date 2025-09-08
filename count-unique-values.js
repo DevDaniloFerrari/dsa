@@ -17,7 +17,18 @@ function countUniqueValues(values) {
     return uniqueValues
 }
 
-console.log(countUniqueValues([1,1,1,1,1,2]))
-console.log(countUniqueValues([1,2,3,4,4,4,7,7,12,12,13]))
-console.log(countUniqueValues([]))
-console.log(countUniqueValues([-2,-1,-1,0,1]))
+function countUniqueValues2(values) {
+    let i = 0
+    for(let j = 0; j < values.length; j++){
+        if(values[i] !== values[j]){
+            i++
+            values[i] = values[j]
+        }
+    }
+    return i === 0 ?  0 : i + 1
+}
+
+console.log(countUniqueValues2([1,1,1,1,1,2]))
+console.log(countUniqueValues2([1,2,3,4,4,4,7,7,12,12,13]))
+console.log(countUniqueValues2([]))
+console.log(countUniqueValues2([-2,-1,-1,0,1]))
