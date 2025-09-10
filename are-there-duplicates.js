@@ -1,7 +1,7 @@
 
 
 function areThereDuplicates(...args){
-    var values = {}
+    let values = {}
 
     for(let value of args){
         values[value] = values[value] + 1 || 1
