@@ -1,5 +1,4 @@
 function findIndex(array, num, start = 0, end = array.length - 1){
-    console.log('interacao')
     if(start <= end){
         let mid = Math.floor((start + end) / 2)
         
